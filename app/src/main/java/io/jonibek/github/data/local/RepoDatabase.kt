@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import io.jonibek.github.model.Repo
 
 @Singleton
-@Database(entities = [Repo::class], version = 1)
+@Database(entities = [Repo::class], version = 1,exportSchema = false)
 abstract class RepoDatabase : RoomDatabase() {
     abstract fun repoDao(): RepoDao
 }

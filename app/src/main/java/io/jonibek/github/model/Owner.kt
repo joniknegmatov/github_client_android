@@ -9,7 +9,7 @@ class Owner(
         @SerializedName("login")
         var login: String?,
         @SerializedName("avatar_url")
-        var avartarUrl: String?,
+        var avatarUrl: String?,
         @SerializedName("type")
         var type: String?
 
