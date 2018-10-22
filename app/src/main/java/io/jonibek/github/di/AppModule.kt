@@ -27,6 +27,7 @@ class AppModule(private val application: GithubApp) {
     companion object {
         const val URL = "https://api.github.com/"
     }
+
     @Provides
     fun providesAppContext(): Context {
         return application.applicationContext

@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.jonibek.github.model.Repo
-import io.reactivex.Single
+import io.reactivex.Observable
 
 @Dao
 interface RepoDao {
@@ -14,5 +14,8 @@ interface RepoDao {
     fun insert(repo : Repo)
 
     @Query("SELECT * from repo_table WHERE owner_login IS :login ")
-    fun getRepos(login : String) : Single<List<Repo>>
+    fun getRepos(login : String) : Observable<List<Repo>>
+
+    @Query("SELECT * from repo_table WHERE id IS :repoId LIMIT 1")
+    fun getRepoById(repoId: Int) : Observable<Repo>
 }

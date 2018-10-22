@@ -94,3 +94,13 @@ q
 Aapp/src/main/java/io/jonibek/github/ui/activities/MainActivity.kt,1/2/1208f2db91c1bd281e4293facd4416f81a53d900
 r
 Bapp/src/main/java/io/jonibek/github/moxy/MvpAppCompatFragment.java,8/7/8787acb463a817cbe8ace1fe13945b5242e98b09
+K
+.idea/dictionaries/John.xml,4/9/49bc352dcca58281a5e51b98d380b85de3143dd8
+p
+@app/src/main/java/io/jonibek/github/ui/fragments/RepoFragment.kt,2/4/244bc9f34e3a757b1ff2ed74b2595d01b1bfb7fe
+Y
+)app/src/main/res/layout/fragment_repo.xml,0/1/01c5cc56e6064edb9c8bbfe511d77112efb227f4
+„
+Tapp/build/generated/source/kapt/debug/io/jonibek/github/data/local/RepoDao_Impl.java,0/1/019412e4a4f60699092b97f394040fa85913179d
+‰
+Yapp/build/generated/source/kapt/debug/io/jonibek/github/data/local/RepoDatabase_Impl.java,1/a/1af73a884a301ca6abaf93260d9fe17617a6a66c

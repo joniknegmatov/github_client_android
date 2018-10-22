@@ -9,8 +9,7 @@ import io.jonibek.github.R
 import io.jonibek.github.model.Repo
 import java.util.ArrayList
 
-class RepoRecyclerAdapter : RecyclerView.Adapter<RepoRecyclerAdapter.RepoViewHolder>() {
-
+class RepoRecyclerAdapter(val onRepoClickListener: OnRepoClickListener) : RecyclerView.Adapter<RepoRecyclerAdapter.RepoViewHolder>() {
 
     private val repoList = ArrayList<Repo>()
 
@@ -20,8 +19,10 @@ class RepoRecyclerAdapter : RecyclerView.Adapter<RepoRecyclerAdapter.RepoViewHol
         notifyDataSetChanged()
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_repo, parent, false)
+
         return RepoViewHolder(view)
     }
 
@@ -31,14 +32,25 @@ class RepoRecyclerAdapter : RecyclerView.Adapter<RepoRecyclerAdapter.RepoViewHol
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
         val repo = repoList[position]
-        holder.tvTitle.text = repo.name
-        holder.tvStars.text = repo.stargazersCount.toString()
-        holder.tvForks.text = repo.forksCount.toString()
+        holder.setRepo(repo)
     }
 
-    inner class RepoViewHolder(view: View,
+    inner class RepoViewHolder(val view: View,
                                val tvTitle: TextView = view.findViewById(R.id.tvTitle),
                                val tvStars: TextView = view.findViewById(R.id.tvStars),
                                val tvForks: TextView = view.findViewById(R.id.tvForks))
-        : RecyclerView.ViewHolder(view)
+        : RecyclerView.ViewHolder(view) {
+        fun setRepo(repo: Repo) {
+            tvTitle.text = repo.name
+            tvStars.text = repo.stargazersCount.toString()
+            tvForks.text = repo.forksCount.toString()
+            view.setOnClickListener {
+                onRepoClickListener!!.onItemClick(repo)
+            }
+        }
+    }
+
+    interface OnRepoClickListener {
+        fun onItemClick(repo: Repo)
+    }
 }

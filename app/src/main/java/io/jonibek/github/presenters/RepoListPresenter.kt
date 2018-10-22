@@ -29,7 +29,6 @@ class RepoListPresenter : MvpPresenter<RepoListView>() {
     fun getRepos(user : String){
         repository.getUserRepos(user)
                 .filter{it.isNotEmpty()}
-                .toObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe {
                     result ->

@@ -5,6 +5,7 @@ import io.jonibek.github.app.GithubApp
 import io.jonibek.github.data.local.RepoLocalDataSource
 import io.jonibek.github.data.remote.RepoRemoteDataSource
 import io.jonibek.github.model.Repo
+import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -40,9 +41,14 @@ class RepoRepositoryImpl : RepoRepository {
         repoLocalLocalDataSource.saveRepos(repoList)
     }
 
-    override fun getUserRepos(name: String): Single<List<Repo>> {
+    override fun getUserRepos(name: String): Observable<List<Repo>> {
        return repoLocalLocalDataSource.getRepos(name)
     }
+
+    override fun getRepoById(repoId: Int): Observable<Repo> {
+        return repoLocalLocalDataSource.getRepoById(repoId)
+    }
+
 
 
 }
